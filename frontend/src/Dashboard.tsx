@@ -123,8 +123,8 @@ export const Dashboard = () => {
         if (timeCompare !== 0) return timeCompare;
         
         // If timestamps are equal, put USER messages first
-        if (a.sender === 'USER' && b.sender === 'CHATBOT_MODEL') return -1;
-        if (a.sender === 'CHATBOT_MODEL' && b.sender === 'USER') return 1;
+        if (a?.sender === 'USER' && b?.sender === 'CHATBOT_MODEL') return -1;
+        if (a?.sender === 'CHATBOT_MODEL' && b?.sender === 'USER') return 1;
         return 0;
       });
       
@@ -132,7 +132,7 @@ export const Dashboard = () => {
       if (messages.length > 0) {
         const currentChat = chatSessions.find(chat => chat.externalId === chatExternalId);
         if (currentChat?.title === 'New Chat') {
-          const firstUserMessage = messages.find(msg => msg.sender === 'USER');
+          const firstUserMessage = messages.find(msg => msg?.sender === 'USER');
           if (firstUserMessage) {
             const newTitle = generateTitleFromMessage(firstUserMessage.content);
             await updateChatTitle(chatExternalId, newTitle);
@@ -580,7 +580,7 @@ export const Dashboard = () => {
                 mb={2}
                 display="flex"
                 justifyContent={
-                  message.sender === "USER" ? "flex-end" : "flex-start"
+                  message?.sender === "USER" ? "flex-end" : "flex-start"
                 }
               >
                 <Paper
@@ -605,8 +605,7 @@ export const Dashboard = () => {
                     },
                   }}
                 >
-                  <Typography>{message.content}</Typography>
-                </Paper>
+<Typography>{message.content}</Typography>                </Paper>
               </Box>
             ))}
           </Box>

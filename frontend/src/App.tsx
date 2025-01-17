@@ -5,7 +5,7 @@ import { PublicOnlyRoute } from './PublicOnlyRoute';
 import  Login  from './Login';
 import  Register  from './Register';
 import  VerifyEmail  from './VerifyEmail';
-import { Dashboard } from './DashBoard';
+import { Dashboard } from './Dashboard';
 import  HomePage  from './HomePage';
 
 const App = () => {
